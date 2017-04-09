@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GistBox</title>
+</head>
+<body>
+<webview id="mainWebview" src="https://app.gistboxapp.com/" autosize="on"></webview>
+<style>
+webview {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+}
+</style>
+<script>
+onload = function() {
+  var webview = document.getElementById("mainWebview");
+
+  webview.addEventListener('new-window', function(e) {
+    require('shell').openExternal(e.url);
+  });
+}
+</script>
+</body>
+</html>
